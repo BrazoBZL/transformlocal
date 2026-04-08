@@ -116,6 +116,14 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="section-title">Tip of the Day</div>
+    <div class="tip-box" id="tipBoxHome">
+      <h3>💡 Quick SEO Insight</h3>
+      <p id="tipTextHome">Loading tip...</p>
+    </div>
+  </section>
+
   <section class="section" style="background:linear-gradient(rgba(15,23,42,0.92),rgba(15,23,42,0.92)),url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=800&fit=crop');background-size:cover;background-position:center;background-attachment:fixed">
     <div class="section-title">What We Do</div>
     <div class="section-sub">Everything your business needs to succeed online</div>
@@ -134,6 +142,37 @@
         <div class="card-icon">✍️</div>
         <h3>Content</h3>
         <p>Blog posts and pages that rank on Google and turn readers into customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Why You Need SEO</div>
+    <div class="section-sub">And why you need professionals to do it</div>
+    <div style="max-width:800px;margin:auto">
+      <div style="background:var(--light);padding:40px;border-radius:12px;margin-bottom:24px;border-left:4px solid var(--primary)">
+        <h4 style="font-size:18px;color:var(--white);margin-bottom:12px">⏰ You Don't Have Time</h4>
+        <p style="color:var(--gray);line-height:1.7">Running your business takes all your time and energy. Learning SEO, researching keywords, writing content, and managing Google take hundreds of hours. That's time away from what you do best — serving customers.</p>
+      </div>
+
+      <div style="background:var(--light);padding:40px;border-radius:12px;margin-bottom:24px;border-left:4px solid var(--accent)">
+        <h4 style="font-size:18px;color:var(--white);margin-bottom:12px">🎯 SEO Is Complex</h4>
+        <p style="color:var(--gray);line-height:1.7">Google has 200+ ranking factors. Algorithms change constantly. What worked last year might hurt you today. Professionals stay on top of this. You don't have to.</p>
+      </div>
+
+      <div style="background:var(--light);padding:40px;border-radius:12px;margin-bottom:24px;border-left:4px solid var(--primary)">
+        <h4 style="font-size:18px;color:var(--white);margin-bottom:12px">💰 Wrong Moves Cost Money</h4>
+        <p style="color:var(--gray);line-height:1.7">Bad SEO practices can tank your rankings for months. Paying for ads while your organic ranking suffers costs thousands. We know what works and what doesn't.</p>
+      </div>
+
+      <div style="background:var(--light);padding:40px;border-radius:12px;margin-bottom:24px;border-left:4px solid var(--accent)">
+        <h4 style="font-size:18px;color:var(--white);margin-bottom:12px">📊 Results Take Time</h4>
+        <p style="color:var(--gray);line-height:1.7">Good SEO takes 3-6 months to show real results. That's a long wait if you're learning as you go. Let experts handle it while you focus on growth.</p>
+      </div>
+
+      <div style="text-align:center;margin-top:48px">
+        <p style="font-size:16px;color:var(--accent);font-weight:600;margin-bottom:16px">Your time is worth more than the cost of SEO.</p>
+        <a href="javascript:void(0)" onclick="showPage('contact')" class="btn-primary">Get Your Free Audit</a>
       </div>
     </div>
   </section>
@@ -397,6 +436,12 @@ function showPage(pageName){
   document.querySelector(`a[onclick="showPage('${pageName}')"]`).classList.add('active');
   window.scrollTo(0,0);
   if(pageName==='faq')showTip();
+  if(pageName==='home')showTipHome();
+}
+
+function showTipHome(){
+  const tip=tips[Math.floor(Math.random()*tips.length)];
+  document.getElementById('tipTextHome').textContent=tip;
 }
 
 function handleSubmit(e){
