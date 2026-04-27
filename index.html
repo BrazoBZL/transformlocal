@@ -569,6 +569,134 @@
             line-height: 1.7;
         }
 
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #111827;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 12px;
+            padding: 60px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: white;
+        }
+
+        .modal h2 {
+            font-size: 32px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .modal p {
+            font-size: 15px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 6px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            background: rgba(6, 182, 212, 0.1);
+            border-color: #06b6d4;
+        }
+
+        .form-group input::placeholder {
+            color: #64748b;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
         /* Footer */
         footer {
             background: #000000;
@@ -686,7 +814,7 @@
             <a href="#results">Results</a>
             <a href="#case-studies">Case Studies</a>
             <a href="#testimonials">Testimonials</a>
-            <button class="cta-button" onclick="document.querySelector('.cta-section').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+            <button class="cta-button" onclick="openModal()">Get Started</button>
         </div>
     </nav>
 
@@ -697,7 +825,7 @@
             <p class="tagline">Google • ChatGPT • Perplexity • Maps • AI Overviews</p>
             <p class="subtext">We rank you on every platform where your customers are searching. Not just Google. Everywhere.</p>
             <div class="hero-cta">
-                <button class="primary" onclick="document.querySelector('.cta-section').scrollIntoView({behavior: 'smooth'})">Schedule Free Audit</button>
+                <button class="primary" onclick="openModal()">Schedule Free Audit</button>
                 <button class="secondary">Learn More</button>
             </div>
         </div>
@@ -928,8 +1056,54 @@
     <section class="cta-section">
         <h2>Ready to Own Your Market?</h2>
         <p>90-day guarantee: Measurable rankings (3+ keywords Page 1) or we work for free. No contracts. Month-to-month.</p>
-        <button class="cta-button" onclick="window.location.href='mailto:hello@transformlocal.net?subject=Request Free SEO Audit' at transformlocal.net/audit')">Schedule Free Audit</button>
+        <button class="cta-button" onclick="openModal() at transformlocal.net/audit')">Schedule Free Audit</button>
     </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Schedule Your Free Audit</h2>
+            <p>We'll analyze your website and show you exactly where you're losing visibility.</p>
+            <form onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <label>Business Name *</label>
+                    <input type="text" name="business_name" required placeholder="Your business name">
+                </div>
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" name="name" required placeholder="Full name">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone *</label>
+                    <input type="tel" name="phone" required placeholder="(555) 123-4567">
+                </div>
+                <div class="form-group">
+                    <label>Service Type *</label>
+                    <select name="service_type" required>
+                        <option value="">Select your industry</option>
+                        <option value="HVAC">HVAC</option>
+                        <option value="Plumbing">Plumbing</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Roofing">Roofing</option>
+                        <option value="Cleaning">Cleaning Services</option>
+                        <option value="Landscaping">Landscaping</option>
+                        <option value="Other">Other Service</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Website URL</label>
+                    <input type="url" name="website" placeholder="https://yourwebsite.com">
+                </div>
+                <button type="submit" class="submit-btn">Schedule Audit</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -945,6 +1119,53 @@
     </footer>
 
     <script>
+        // Modal functions
+        function openModal() {
+            document.getElementById('bookingModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            const formData = {
+                business_name: document.querySelector('[name="business_name"]').value,
+                name: document.querySelector('[name="name"]').value,
+                email: document.querySelector('[name="email"]').value,
+                phone: document.querySelector('[name="phone"]').value,
+                service_type: document.querySelector('[name="service_type"]').value,
+                website: document.querySelector('[name="website"]').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Send to email
+            const mailtoLink = `mailto:hello@transformlocal.net?subject=Free%20SEO%20Audit%20Request%20-%20${encodeURIComponent(formData.business_name)}&body=${encodeURIComponent(
+                `Business: ${formData.business_name}\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service_type}\nWebsite: ${formData.website}`
+            )}`;
+            
+            window.location.href = mailtoLink;
+
+            // Show success message
+            alert(`Thanks ${formData.name}! We'll contact you within 24 hours to schedule your free audit.`);
+            closeModal();
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
         // Smooth scroll animations on load
         const observerOptions = {
             threshold: 0.1,
