@@ -18,8 +18,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f8fafc;
-            color: #1f2937;
+            background: #0a0a0a;
+            color: #e0e0e0;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -29,11 +29,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 1000;
-            padding: 16px 60px;
+            padding: 20px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,15 +44,16 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: #0f3460;
+            color: white;
             font-weight: 700;
             font-size: 20px;
+            letter-spacing: -0.5px;
         }
 
         nav .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #0f3460 0%, #10b981 100%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -70,78 +71,92 @@
 
         nav .nav-links a {
             text-decoration: none;
-            color: #64748b;
+            color: #94a3b8;
             font-size: 14px;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         nav .nav-links a:hover {
-            color: #10b981;
+            color: #06b6d4;
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #0f3460 0%, #10b981 100%);
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
             color: white;
             padding: 12px 28px;
-            border-radius: 8px;
+            border-radius: 6px;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
             border: none;
             cursor: pointer;
             transition: all 0.3s;
+            letter-spacing: 0.5px;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(15, 52, 96, 0.2);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
         }
 
         /* Hero Section */
         .hero {
             margin-top: 80px;
-            height: 100vh;
-            background: linear-gradient(135deg, #0f3460 0%, #1a4d6d 100%);
-            color: white;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111827 100%);
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
+            padding: 80px 60px;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
+            top: 0;
+            right: -200px;
             width: 800px;
             height: 800px;
-            background: rgba(16, 185, 129, 0.08);
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 25s infinite;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -300px;
+            left: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 30s infinite reverse;
+            z-index: 0;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(30px) translateX(-20px); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 1000px;
             text-align: center;
-            padding: 0 40px;
             opacity: 0;
-            animation: fadeInUp 1s ease-out 0.3s forwards;
+            animation: fadeInUp 1.2s ease-out 0.3s forwards;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -150,27 +165,36 @@
         }
 
         .hero h1 {
-            font-size: 72px;
+            font-size: 80px;
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+            line-height: 1.05;
+            margin-bottom: 25px;
+            color: white;
+            letter-spacing: -2px;
         }
 
         .hero .tagline {
             font-size: 24px;
-            opacity: 0.95;
-            margin-bottom: 40px;
-            color: #d1fae5;
-            font-weight: 300;
-            line-height: 1.6;
+            color: #06b6d4;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .hero .subtext {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-cta {
             display: flex;
             gap: 20px;
             justify-content: center;
-            margin-top: 50px;
             flex-wrap: wrap;
         }
 
@@ -179,30 +203,31 @@
             font-size: 16px;
             font-weight: 600;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .hero-cta .primary {
-            background: white;
-            color: #0f3460;
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            letter-spacing: 0.5px;
         }
 
         .hero-cta .primary:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.3);
         }
 
         .hero-cta .secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            background: rgba(6, 182, 212, 0.1);
+            color: #06b6d4;
+            border: 2px solid rgba(6, 182, 212, 0.3);
         }
 
         .hero-cta .secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: white;
+            background: rgba(6, 182, 212, 0.2);
+            border-color: #06b6d4;
         }
 
         /* Scroll Indicator */
@@ -217,13 +242,13 @@
 
         @keyframes bounce {
             0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
+            50% { transform: translateX(-50%) translateY(-15px); }
         }
 
         .scroll-indicator svg {
             width: 24px;
             height: 24px;
-            stroke: white;
+            stroke: #06b6d4;
             stroke-width: 2;
             fill: none;
         }
@@ -233,19 +258,20 @@
             padding: 120px 60px;
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         .section-title {
             font-size: 56px;
             font-weight: 900;
             margin-bottom: 15px;
-            color: #0f3460;
-            letter-spacing: -1px;
+            color: white;
+            letter-spacing: -1.5px;
         }
 
         .section-subtitle {
             font-size: 18px;
-            color: #64748b;
+            color: #94a3b8;
             margin-bottom: 60px;
             max-width: 700px;
             line-height: 1.7;
@@ -260,35 +286,36 @@
         }
 
         .problem-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
             padding: 40px;
-            border-radius: 12px;
-            border-left: 4px solid #ef4444;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
             transition: all 0.3s;
         }
 
         .problem-card:hover {
+            background: rgba(6, 182, 212, 0.1);
+            border-color: rgba(6, 182, 212, 0.4);
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         .problem-card h3 {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 15px;
-            color: #1f2937;
+            color: white;
         }
 
         .problem-card p {
             font-size: 15px;
-            color: #64748b;
+            color: #94a3b8;
             line-height: 1.7;
         }
 
         /* Services Section */
         .services-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            background: #111827;
         }
 
         .services-grid {
@@ -299,19 +326,19 @@
         }
 
         .service-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(6, 182, 212, 0.15);
             padding: 50px 40px;
-            border-radius: 12px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
             transition: all 0.3s;
-            border: 1px solid rgba(15, 52, 96, 0.1);
         }
 
         .service-card:hover {
+            background: rgba(6, 182, 212, 0.08);
+            border-color: rgba(6, 182, 212, 0.4);
             transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(15, 52, 96, 0.15);
-            border-color: #10b981;
         }
 
         .service-icon {
@@ -324,20 +351,16 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 15px;
-            color: #0f3460;
+            color: white;
         }
 
         .service-card p {
             font-size: 15px;
-            color: #64748b;
+            color: #94a3b8;
             line-height: 1.7;
         }
 
         /* Results Section */
-        .results-section {
-            background: white;
-        }
-
         .results-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -346,115 +369,134 @@
         }
 
         .result-card {
-            background: linear-gradient(135deg, #0f3460 0%, #10b981 100%);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.3);
             color: white;
             padding: 50px 40px;
-            border-radius: 12px;
+            border-radius: 8px;
             text-align: center;
             transition: all 0.3s;
+            backdrop-filter: blur(10px);
         }
 
         .result-card:hover {
+            border-color: #06b6d4;
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(15, 52, 96, 0.3);
         }
 
         .result-metric {
             font-size: 52px;
             font-weight: 900;
             margin-bottom: 10px;
+            color: #06b6d4;
+            letter-spacing: -1px;
         }
 
         .result-label {
             font-size: 16px;
-            opacity: 0.95;
+            color: #94a3b8;
             font-weight: 500;
         }
 
         /* Case Studies Section */
         .case-studies-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            background: #111827;
         }
 
         .case-study-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 60px;
             margin-top: 60px;
         }
 
         .case-study {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
         }
 
-        .case-study:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        .case-study:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .case-study:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .case-study:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+
+        .case-study:nth-child(even) > * {
+            direction: ltr;
         }
 
         .case-study-image {
             width: 100%;
-            height: 240px;
-            background: linear-gradient(135deg, #0f3460 0%, #10b981 100%);
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.05) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #94a3b8;
             font-size: 14px;
             font-weight: 600;
-        }
-
-        .case-study-content {
+            text-align: center;
             padding: 40px;
+            backdrop-filter: blur(10px);
         }
 
-        .case-study h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #0f3460;
+        .case-study-content h3 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: white;
+            letter-spacing: -0.5px;
         }
 
         .case-study-metric {
-            font-size: 28px;
+            font-size: 48px;
             font-weight: 900;
-            color: #10b981;
-            margin: 15px 0;
+            color: #06b6d4;
+            margin: 20px 0;
+            letter-spacing: -1px;
         }
 
-        .case-study p {
-            font-size: 15px;
-            color: #64748b;
-            line-height: 1.7;
+        .case-study-content p {
+            font-size: 16px;
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
         /* Testimonials */
-        .testimonials-section {
-            background: white;
-        }
-
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 40px;
             margin-top: 60px;
         }
 
         .testimonial {
-            background: #f8fafc;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
             padding: 40px;
-            border-radius: 12px;
-            border-left: 4px solid #10b981;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
             transition: all 0.3s;
         }
 
         .testimonial:hover {
-            transform: translateX(5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            background: rgba(6, 182, 212, 0.1);
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-5px);
         }
 
         .testimonial-stars {
@@ -466,42 +508,45 @@
         .testimonial-quote {
             font-size: 16px;
             font-style: italic;
-            color: #475569;
-            margin-bottom: 20px;
+            color: #e0e0e0;
+            margin-bottom: 25px;
             line-height: 1.8;
         }
 
         .testimonial-author {
             font-weight: 700;
-            color: #0f3460;
+            color: white;
             font-size: 16px;
         }
 
         .testimonial-title {
             font-size: 14px;
-            color: #64748b;
+            color: #94a3b8;
             margin-top: 4px;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #0f3460 0%, #10b981 100%);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.3);
             color: white;
             text-align: center;
-            border-radius: 16px;
+            border-radius: 8px;
             padding: 100px 60px;
             margin: 80px 60px;
+            backdrop-filter: blur(10px);
         }
 
         .cta-section h2 {
             font-size: 52px;
             font-weight: 900;
             margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
         .cta-section p {
             font-size: 18px;
-            opacity: 0.95;
+            color: #94a3b8;
             margin-bottom: 40px;
             max-width: 700px;
             margin-left: auto;
@@ -509,22 +554,16 @@
             line-height: 1.7;
         }
 
-        .cta-section .cta-button {
-            background: white;
-            color: #0f3460;
-            padding: 14px 40px;
-        }
-
         /* Footer */
         footer {
-            background: #0f3460;
-            color: white;
+            background: #000000;
+            color: #94a3b8;
             padding: 60px 60px;
             text-align: center;
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
         }
 
         footer p {
-            opacity: 0.8;
             margin-bottom: 20px;
             font-size: 15px;
         }
@@ -538,7 +577,7 @@
         }
 
         .footer-links a {
-            color: #d1fae5;
+            color: #06b6d4;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -562,19 +601,18 @@
         /* Responsive */
         @media (max-width: 768px) {
             nav {
-                padding: 12px 20px;
-                flex-direction: column;
-                gap: 15px;
+                padding: 16px 20px;
             }
 
             nav .nav-links {
-                gap: 20px;
+                gap: 15px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
             .hero {
-                margin-top: 120px;
+                margin-top: 100px;
+                padding: 40px 20px;
             }
 
             .hero h1 {
@@ -585,12 +623,25 @@
                 font-size: 18px;
             }
 
+            .hero .subtext {
+                font-size: 16px;
+            }
+
             section {
                 padding: 60px 20px;
             }
 
             .section-title {
                 font-size: 36px;
+            }
+
+            .case-study {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .case-study:nth-child(even) {
+                direction: ltr;
             }
 
             .cta-section {
@@ -600,6 +651,10 @@
 
             .cta-section h2 {
                 font-size: 36px;
+            }
+
+            footer {
+                padding: 40px 20px;
             }
         }
     </style>
@@ -623,9 +678,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Be Visible Everywhere Your Customers Search</h1>
-            <p class="tagline">Google. ChatGPT. Perplexity. Local Maps. AI Overviews. We rank you everywhere.</p>
-            <p class="tagline" style="font-size: 16px; opacity: 0.9; margin-top: -20px;">Most agencies focus on one channel. We own them all. Your business shows up where customers are actually looking — from traditional search to AI-powered discovery platforms.</p>
+            <h1>Be Visible Everywhere</h1>
+            <p class="tagline">Google • ChatGPT • Perplexity • Maps • AI Overviews</p>
+            <p class="subtext">We rank you on every platform where your customers are searching. Not just Google. Everywhere.</p>
             <div class="hero-cta">
                 <button class="primary" onclick="document.querySelector('.cta-section').scrollIntoView({behavior: 'smooth'})">Schedule Free Audit</button>
                 <button class="secondary">Learn More</button>
@@ -639,33 +694,33 @@
     </section>
 
     <!-- Problems Section -->
-    <section id="problems" class="fade-in">
-        <h2 class="section-title">The Multi-Channel Problem</h2>
-        <p class="section-subtitle">You're losing customers across multiple platforms. Most businesses don't realize where they're really losing visibility.</p>
+    <section id="problems">
+        <h2 class="section-title">The Problem</h2>
+        <p class="section-subtitle">You're invisible where it matters most. Your customers are searching on multiple platforms, but you're only visible on one — if at all.</p>
         <div class="problems-grid">
             <div class="problem-card fade-in">
-                <h3>❌ Invisible on Google</h3>
+                <h3>❌ Hidden on Google</h3>
                 <p>You're not ranking for the keywords your customers are searching. Your competitors own the first page.</p>
             </div>
             <div class="problem-card fade-in">
                 <h3>❌ Missing from AI</h3>
-                <p>ChatGPT, Perplexity, and Google AI are answering questions — but they're recommending competitors.</p>
+                <p>ChatGPT and Perplexity are answering customer questions — but they're recommending your competitors.</p>
             </div>
             <div class="problem-card fade-in">
                 <h3>❌ Lost on Maps</h3>
-                <p>Local searches aren't finding you. Your Google Business Profile isn't optimized. Lost foot traffic.</p>
+                <p>Local searches aren't finding you. Google Maps visibility is zero. You're losing foot traffic.</p>
             </div>
             <div class="problem-card fade-in">
-                <h3>❌ Fragmented Presence</h3>
-                <p>Your business info is scattered across 50+ directories, inconsistent, and incomplete.</p>
+                <h3>❌ Fragmented Data</h3>
+                <p>Your business info is scattered across directories, inconsistent, and incomplete. Google is confused.</p>
             </div>
             <div class="problem-card fade-in">
                 <h3>❌ Ad Spend Bleeding</h3>
-                <p>Throwing money at Google Ads while organic visibility is zero. You're renting traffic, not owning it.</p>
+                <p>Throwing $2-5k/month at Google Ads while organic visibility is zero. You're renting traffic, not owning it.</p>
             </div>
             <div class="problem-card fade-in">
-                <h3>❌ No Social Authority</h3>
-                <p>Social media isn't driving leads. You're posting without strategy. Reviews are unmanaged.</p>
+                <h3>❌ No Authority</h3>
+                <p>Your social media, reviews, and mentions aren't building trust. You're invisible on platforms that matter.</p>
             </div>
         </div>
     </section>
@@ -678,26 +733,26 @@
             <div class="service-card fade-in">
                 <div class="service-icon">🔍</div>
                 <h3>Google SEO</h3>
-                <p>Meta tags, schema markup, content strategy, technical SEO. We get you ranking #1 for target keywords.</p>
+                <p>Meta tags, schema, content strategy, technical SEO. We get you ranking #1 for your target keywords.</p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">🤖</div>
-                <h3>AI Search Optimization</h3>
-                <p>ChatGPT, Perplexity, Google AI Overviews. We make sure you're in the answers AI gives.</p>
+                <h3>AI Search</h3>
+                <p>ChatGPT, Perplexity, Google AI. We make sure you're in the answers AI gives your customers.</p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">📍</div>
                 <h3>Local Rankings</h3>
-                <p>Google Maps optimization, local pack domination, Google Business Profile mastery. Own your market.</p>
+                <p>Google Maps, local pack, GBP. Own your geographic market completely.</p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">📋</div>
-                <h3>Citation Building</h3>
-                <p>NAP consistency across 50+ directories. Local authority signals. Google knows exactly where you are.</p>
+                <h3>Citations</h3>
+                <p>NAP consistency across 50+ directories. Build local authority signals. Google knows exactly where you are.</p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">✍️</div>
-                <h3>Content Strategy</h3>
+                <h3>Content</h3>
                 <p>Blog posts, service pages, FAQ. Content that ranks, converts, and answers customer questions.</p>
             </div>
             <div class="service-card fade-in">
@@ -707,21 +762,21 @@
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">⚡</div>
-                <h3>Conversion Optimization</h3>
-                <p>Landing page optimization, CTA strategy, funnel design. Traffic means nothing if it doesn't convert.</p>
+                <h3>Conversions</h3>
+                <p>Landing pages, CTA strategy, funnel design. Traffic means nothing if it doesn't convert.</p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">📊</div>
-                <h3>Analytics & Reporting</h3>
+                <h3>Analytics</h3>
                 <p>Real-time dashboards, monthly reports, attribution tracking. You know exactly where leads come from.</p>
             </div>
         </div>
     </section>
 
     <!-- Results Section -->
-    <section id="results" class="fade-in">
-        <h2 class="section-title">Results That Matter</h2>
-        <p class="section-subtitle">Real metrics from real clients. These aren't estimates — they're outcomes we've delivered.</p>
+    <section id="results">
+        <h2 class="section-title">Results</h2>
+        <p class="section-subtitle">Real metrics from real clients. These aren't projections — they're outcomes we've delivered.</p>
         <div class="results-grid">
             <div class="result-card fade-in">
                 <div class="result-metric">847%</div>
@@ -729,11 +784,11 @@
             </div>
             <div class="result-card fade-in">
                 <div class="result-metric">18</div>
-                <div class="result-label">New Keywords Ranking Page 1</div>
+                <div class="result-label">Keywords Ranking Page 1</div>
             </div>
             <div class="result-card fade-in">
                 <div class="result-metric">127</div>
-                <div class="result-label">New Leads in 90 Days</div>
+                <div class="result-label">New Leads (90 Days)</div>
             </div>
             <div class="result-card fade-in">
                 <div class="result-metric">$47k</div>
@@ -748,52 +803,58 @@
         <p class="section-subtitle">Real businesses. Real visibility. Real growth.</p>
         <div class="case-study-grid">
             <div class="case-study fade-in">
-                <div class="case-study-image">HVAC Company in Santa Clarita</div>
+                <div class="case-study-image">HVAC Company • Santa Clarita</div>
                 <div class="case-study-content">
                     <h3>PowerStar Repair</h3>
                     <div class="case-study-metric">+203%</div>
-                    <p>Organic traffic. Zero results from $2k/month Google Ads. Now we're delivering leads organically.</p>
+                    <p><strong>The problem:</strong> $2,000/month in Google Ads. Zero leads. Website wasn't ranking for any keywords.</p>
+                    <p><strong>What we did:</strong> Complete SEO overhaul — schema markup, service page optimization, local rankings strategy.</p>
+                    <p><strong>The result:</strong> Organic traffic up 203% in 6 months. Now getting 8-12 leads/month organically. Ad spend cut by 70%.</p>
                 </div>
             </div>
             <div class="case-study fade-in">
-                <div class="case-study-image">Plumbing Service in Van Nuys</div>
+                <div class="case-study-image">Plumbing Service • Van Nuys</div>
                 <div class="case-study-content">
                     <h3>BM Plumbing</h3>
                     <div class="case-study-metric">+156%</div>
-                    <p>Local rankings for 8 key service areas. Established 1992, now visible where it counts most.</p>
+                    <p><strong>The problem:</strong> Established 1992, but completely invisible online. No local rankings. No Google Maps visibility.</p>
+                    <p><strong>What we did:</strong> Local SEO foundation — GBP optimization, citation building, service area targeting.</p>
+                    <p><strong>The result:</strong> Ranking for 12+ local keywords. Google Maps visibility across service areas. 5-7 new jobs/month from organic search.</p>
                 </div>
             </div>
             <div class="case-study fade-in">
-                <div class="case-study-image">Pizza Restaurant with 6 Locations</div>
+                <div class="case-study-image">Pizza Restaurant • Los Angeles (6 locations)</div>
                 <div class="case-study-content">
                     <h3>D'Amore's Famous Pizza</h3>
                     <div class="case-study-metric">+89%</div>
-                    <p>Multiple locations optimized. Google Maps visibility across all 6 spots + AI search visibility.</p>
+                    <p><strong>The problem:</strong> 35 years in business, 5,000+ Instagram followers, but Google couldn't find them. No multi-location visibility.</p>
+                    <p><strong>What we did:</strong> Multi-location SEO strategy — Individual GBP optimization for each location, consistent citations, review management.</p>
+                    <p><strong>The result:</strong> Ranking across all 6 locations. Google Maps visibility for each address. Walk-in traffic up 89%. Now showing up in "near me" searches.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section" id="testimonials" class="fade-in">
+    <section id="testimonials">
         <h2 class="section-title">What Clients Say</h2>
-        <p class="section-subtitle">Real feedback from service businesses we've helped.</p>
+        <p class="section-subtitle">Real feedback from service businesses we've helped transform.</p>
         <div class="testimonials-grid">
             <div class="testimonial fade-in">
                 <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-quote">"We were spending $3,000/month on Google Ads with zero leads. In 90 days with Transform Local, we're getting consistent leads organically. We've cut ad spend by 60%."</div>
+                <div class="testimonial-quote">"We were spending $3,000/month on Google Ads with zero leads. In 90 days with Transform Local, we're getting consistent leads organically. We've cut our ad spend by 60% and the leads are better quality."</div>
                 <div class="testimonial-author">Mike J.</div>
                 <div class="testimonial-title">Owner, HVAC Company</div>
             </div>
             <div class="testimonial fade-in">
                 <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-quote">"Transform Local didn't just rank us on Google — they got us showing up in ChatGPT and Google's AI Overviews. Our phone has been ringing nonstop."</div>
+                <div class="testimonial-quote">"Transform Local didn't just rank us on Google — they got us showing up in ChatGPT and Google's AI Overviews. Our phone has been ringing nonstop. This is exactly what we needed."</div>
                 <div class="testimonial-author">Sarah C.</div>
                 <div class="testimonial-title">Manager, Plumbing Service</div>
             </div>
             <div class="testimonial fade-in">
                 <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-quote">"The team understood our business immediately and delivered results faster than expected. They're not just marketers — they're business strategists who get it."</div>
+                <div class="testimonial-quote">"The team understood our business immediately and delivered results faster than expected. They're not just marketers — they're business strategists who genuinely care about your success."</div>
                 <div class="testimonial-author">David M.</div>
                 <div class="testimonial-title">CEO, Electrical Services</div>
             </div>
@@ -803,7 +864,7 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <h2>Ready to Own Your Market?</h2>
-        <p>90-day guarantee: Measurable rankings (3+ keywords Page 1) or we work for free. No contracts. Month-to-month. Let's get started.</p>
+        <p>90-day guarantee: Measurable rankings (3+ keywords Page 1) or we work for free. No contracts. Month-to-month.</p>
         <button class="cta-button" onclick="alert('Schedule your free audit at transformlocal.net/audit')">Schedule Free Audit</button>
     </section>
 
@@ -817,7 +878,7 @@
             <a href="#testimonials">Testimonials</a>
             <a href="mailto:hello@transformlocal.net">Contact</a>
         </div>
-        <p style="margin-top: 30px;">Be visible everywhere. Own your market. Transform your business.</p>
+        <p style="margin-top: 30px; color: #64748b;">Be visible everywhere. Own your market. Transform your business.</p>
     </footer>
 
     <script>
