@@ -451,6 +451,21 @@
             text-align: center;
             padding: 40px;
             backdrop-filter: blur(10px);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.1) 100%);
+            pointer-events: none;
         }
 
         .case-study-content h3 {
@@ -803,7 +818,23 @@
         <p class="section-subtitle">Real businesses. Real visibility. Real growth.</p>
         <div class="case-study-grid">
             <div class="case-study fade-in">
-                <div class="case-study-image">HVAC Company • Santa Clarita</div>
+                <div class="case-study-image" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; align-items: center; justify-content: space-around; color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+                    <div style="flex: 1; text-align: center; padding: 20px;">
+                        <div style="font-size: 20px; margin-bottom: 10px; color: #ef4444; font-weight: 700;">BEFORE</div>
+                        <div style="font-size: 16px; color: #94a3b8;">Page 3</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 8px;">0 organic leads/month</div>
+                        <div style="font-size: 40px; font-weight: 900; color: #64748b; margin-top: 16px;">$2,000</div>
+                        <div style="font-size: 12px; color: #64748b;">in Google Ads</div>
+                    </div>
+                    <div style="width: 2px; height: 60%; background: linear-gradient(180deg, transparent, #06b6d4, transparent);"></div>
+                    <div style="flex: 1; text-align: center; padding: 20px;">
+                        <div style="font-size: 20px; margin-bottom: 10px; color: #06b6d4; font-weight: 700;">AFTER</div>
+                        <div style="font-size: 16px; color: #06b6d4;">Page 1</div>
+                        <div style="font-size: 12px; color: #a5f3fc; margin-top: 8px;">8-12 organic leads/month</div>
+                        <div style="font-size: 40px; font-weight: 900; color: #06b6d4; margin-top: 16px;">$600</div>
+                        <div style="font-size: 12px; color: #a5f3fc;">in Google Ads</div>
+                    </div>
+                </div>
                 <div class="case-study-content">
                     <h3>PowerStar Repair</h3>
                     <div class="case-study-metric">+203%</div>
@@ -813,7 +844,23 @@
                 </div>
             </div>
             <div class="case-study fade-in">
-                <div class="case-study-image">Plumbing Service • Van Nuys</div>
+                <div class="case-study-image" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); display: flex; align-items: center; justify-content: space-around; color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+                    <div style="flex: 1; text-align: center; padding: 20px;">
+                        <div style="font-size: 20px; margin-bottom: 10px; color: #ef4444; font-weight: 700;">BEFORE</div>
+                        <div style="font-size: 16px; color: #94a3b8;">Not visible</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 8px;">No local rankings</div>
+                        <div style="font-size: 40px; font-weight: 900; color: #64748b; margin-top: 16px;">0</div>
+                        <div style="font-size: 12px; color: #64748b;">Google Maps visibility</div>
+                    </div>
+                    <div style="width: 2px; height: 60%; background: linear-gradient(180deg, transparent, #06b6d4, transparent);"></div>
+                    <div style="flex: 1; text-align: center; padding: 20px;">
+                        <div style="font-size: 20px; margin-bottom: 10px; color: #06b6d4; font-weight: 700;">AFTER</div>
+                        <div style="font-size: 16px; color: #06b6d4;">Top 3</div>
+                        <div style="font-size: 12px; color: #a5f3fc; margin-top: 8px;">12+ keywords ranking</div>
+                        <div style="font-size: 40px; font-weight: 900; color: #06b6d4; margin-top: 16px;">6</div>
+                        <div style="font-size: 12px; color: #a5f3fc;">service areas dominating</div>
+                    </div>
+                </div>
                 <div class="case-study-content">
                     <h3>BM Plumbing</h3>
                     <div class="case-study-metric">+156%</div>
@@ -823,7 +870,23 @@
                 </div>
             </div>
             <div class="case-study fade-in">
-                <div class="case-study-image">Pizza Restaurant • Los Angeles (6 locations)</div>
+                <div class="case-study-image" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; align-items: center; justify-content: space-around; color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+                    <div style="flex: 1; text-align: center; padding: 20px;">
+                        <div style="font-size: 20px; margin-bottom: 10px; color: #ef4444; font-weight: 700;">BEFORE</div>
+                        <div style="font-size: 16px; color: #94a3b8;">Invisible</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 8px;">6 locations, 0 visibility</div>
+                        <div style="font-size: 40px; font-weight: 900; color: #64748b; margin-top: 16px;">—</div>
+                        <div style="font-size: 12px; color: #64748b;">No "near me" traffic</div>
+                    </div>
+                    <div style="width: 2px; height: 60%; background: linear-gradient(180deg, transparent, #06b6d4, transparent);"></div>
+                    <div style="flex: 1; text-align: center; padding: 20px;">
+                        <div style="font-size: 20px; margin-bottom: 10px; color: #06b6d4; font-weight: 700;">AFTER</div>
+                        <div style="font-size: 16px; color: #06b6d4;">Dominating</div>
+                        <div style="font-size: 12px; color: #a5f3fc; margin-top: 8px;">All 6 locations top 3</div>
+                        <div style="font-size: 40px; font-weight: 900; color: #06b6d4; margin-top: 16px;">+89%</div>
+                        <div style="font-size: 12px; color: #a5f3fc;">walk-in traffic increase</div>
+                    </div>
+                </div>
                 <div class="case-study-content">
                     <h3>D'Amore's Famous Pizza</h3>
                     <div class="case-study-metric">+89%</div>
